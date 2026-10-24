@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- 个人网站渲染页：内容全部来自 content.js（公网可编辑），本页只负责排版。 -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="starryecho 的个人主页">
+<title>starryecho · 个人主页</title>
+<style>
+  :root {
+    --brand: #6750a4;
+    --brand-soft: #ece6f7;
+    --bg: #faf8fd;
+    --card: #ffffff;
+    --text: #1d1b20;
+    --muted: #5b5763;
+    --line: #e6e1ef;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --brand: #cfbcff;
+      --brand-soft: #2b2540;
+      --bg: #141218;
+      --card: #211f26;
+      --text: #e6e1e9;
+      --muted: #a9a3b2;
+      --line: #36343d;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "HarmonyOS Sans SC", "MiSans", -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 48px; }
+  header {
+    text-align: center; padding: 64px 16px 40px;
+    background: linear-gradient(180deg, var(--brand-soft) 0%, var(--bg) 100%);
+  }
+  .avatar {
+    width: 96px; height: 96px; border-radius: 50%;
+    background: var(--brand); color: var(--bg);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 40px; font-weight: 700; letter-spacing: 1px;
+    box-shadow: 0 6px 24px rgba(103, 80, 164, .28);
+  }
+  h1 { font-size: 30px; margin-top: 18px; letter-spacing: .5px; }
+  .tagline { color: var(--muted); margin-top: 6px; font-size: 15px; }
+  .tagline b { color: var(--brand); font-weight: 600; }
+  section { margin-top: 36px; }
+  h2 { font-size: 18px; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  h2::before { content: ""; width: 4px; height: 18px; border-radius: 2px; background: var(--brand); }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+  .card + .card { margin-top: 12px; }
+  .card h3 { font-size: 16px; }
+  .card p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .card .meta { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .pill {
+    font-size: 12px; color: var(--brand); background: var(--brand-soft);
+    padding: 2px 10px; border-radius: 999px;
+  }
+  .card a { color: var(--brand); text-decoration: none; font-size: 13px; }
+  .card a:hover { text-decoration: underline; }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skills .pill { font-size: 14px; padding: 6px 16px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--line); border-radius: 12px; padding: 10px 18px;
+    color: var(--text); text-decoration: none; font-size: 14px; background: var(--card);
+  }
+  .links a:hover { border-color: var(--brand); color: var(--brand); }
+  .edit-link { text-align: center; margin-top: 28px; }
+  .edit-link a { color: var(--muted); font-size: 13px; text-decoration: none; }
+  .edit-link a:hover { color: var(--brand); }
+  footer {
+    text-align: center; color: var(--muted); font-size: 12px;
+    margin-top: 24px; border-top: 1px solid var(--line); padding-top: 24px;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="avatar" id="avatar">S</div>
+  <h1 id="name"></h1>
+  <p class="tagline" id="tagline"></p>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2>关于我</h2>
+    <div class="card" id="about"></div>
+  </section>
+
+  <section>
+    <h2>项目</h2>
+    <div id="projects"></div>
+  </section>
+
+  <section>
+    <h2>技能</h2>
+    <div class="skills" id="skills"></div>
+  </section>
+
+  <section>
+    <h2>找到我</h2>
+    <div class="links" id="links"></div>
+  </section>
+
+  <div class="edit-link"><a href="editor.html">✏️ 编辑本页内容（需 GitHub 令牌）</a></div>
+
+  <footer id="footer"></footer>
+
+</div>
+
+<script src="content.js"></script>
+<script>
+  function render(content) {
+    var esc = function (s) {
+      return String(s || '').replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    };
+    var initial = esc((content.name || '?').trim().charAt(0).toUpperCase());
+    document.getElementById('avatar').textContent = initial;
+    document.title = (content.name || '') + ' · 个人主页';
+    document.getElementById('name').textContent = content.name || '';
+    var tagline = esc(content.tagline || '');
+    document.getElementById('tagline').innerHTML = tagline.replace(/([A-Za-z][A-Za-z0-9 ]+[^·]*)$/, function (m) {
+      return '<b>' + m + '</b>';
+    });
+    document.getElementById('about').innerHTML = (content.about || [])
+      .map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('')
+      .replace(/<p>/, '<p style="margin-top:0">') || '<p>还没有介绍。</p>';
+    document.getElementById('projects').innerHTML = (content.projects || [])
+      .map(function (p) {
+        var tags = (p.tags || []).map(function (t) { return '<span class="pill">' + esc(t) + '</span>'; }).join('');
+        var link = p.link ? '<a href="' + esc(p.link) + '" target="_blank" rel="noopener">GitHub →</a>' : '';
+        return '<div class="card"><h3>' + esc(p.name) + '</h3><p>' + esc(p.description) +
+          '</p><div class="meta">' + tags + link + '</div></div>';
+      }).join('');
+    document.getElementById('skills').innerHTML = (content.skills || [])
+      .map(function (s) { return '<span class="pill">' + esc(s) + '</span>'; }).join('');
+    document.getElementById('links').innerHTML = (content.links || [])
+      .map(function (l) { return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label) + '</a>'; }).join('');
+    document.getElementById('footer').innerHTML = esc(content.footer || '');
+  }
+  render(window.SITE_CONTENT || {});
+</script>
+</body>
+</html>
