@@ -21,7 +21,7 @@ window.SITE_CONTENT = {
       "link": "https://github.com/starryecho-T/ThuSchedule"
     },
     {
-      "name": "AutoCandence",
+      "name": "AutoCadence",
       "description": "AutoCadence 是面向电路题目的桌面设计与仿真应用。普通语言或图片输入 → AI 给出连接和参数建议 → 用户选择是／否 → 核对电路 → Cadence / Spectre 仿真 → 独立曲线与报告。(可以帮助使用virtuoso进行电路仿真",
       "tags": [
         "电路"
