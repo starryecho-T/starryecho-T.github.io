@@ -5,6 +5,9 @@
 纯静态、零依赖：`index.html`（排版）+ `content.js`（内容数据）+ `editor.html`（在线编辑器）。
 由 GitHub Pages 自动发布，改完内容约 1 分钟生效。
 
+> 首次部署：2026-10-24（仓库经 GitHub Contents API 创建；本机直连 github.com 推送，见
+> `D:\GitHub\GitHub推送与网络问题指南.md`）。
+
 ## 怎么编辑（三种方式任选）
 
 1. **网页编辑器（推荐）**：打开 [editor.html](https://starryecho-t.github.io/editor.html)，
