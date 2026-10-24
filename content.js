@@ -34,8 +34,8 @@ window.SITE_CONTENT = {
       "url": "https://github.com/starryecho-T"
     },
     {
-      "label": "QQ",
-      "url": "2136610261"
+      "label": "QQ：2136610261",
+      "url": "https://www.yuanshen.com"
     }
   ],
   "footer": "© 2026 starryecho · 手写 HTML，无框架无构建"
