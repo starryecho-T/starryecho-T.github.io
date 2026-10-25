@@ -12,7 +12,7 @@ window.SITE_CONTENT = {
   "projects": [
     {
       "name": "ThuSchedule · 清华课表",
-      "description": "面向清华的 Android 课表应用：周视图、日程概览、桌面小组件矩阵、上课提醒，支持从 INFO 门户 / 教务系统一键导入课表。本地运行，无广告。",
+      "description": "我的个人课表工作站：为清华日常定制的 Android 应用。不提供安装包；适合借用的部分：自绘周视图课表、严格校验的教务导入管线、小组件矩阵、精确闹钟调度。由我的吉大课表项目 ClassSchedule（同为本人开发）演化而来。",
       "tags": [
         "Kotlin",
         "Room",
