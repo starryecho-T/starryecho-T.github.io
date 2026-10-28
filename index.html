@@ -75,15 +75,15 @@
     color: var(--text); text-decoration: none; font-size: 14px; background: var(--card);
   }
   .links a:hover { border-color: var(--brand); color: var(--brand); }
-  .visit-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-  .visit-card p { color: var(--muted); font-size: 14px; }
-  .visit-counter { min-width: 132px; min-height: 44px; font-size: 15px; font-weight: 600; color: var(--brand); }
-  @media (max-width: 480px) {
-    .visit-card { align-items: flex-start; flex-direction: column; }
+  .visitor-footer {
+    display: flex; align-items: baseline; justify-content: center; gap: 8px;
+    margin-top: 16px; color: var(--muted); font-size: 13px;
   }
-  .edit-link { text-align: center; margin-top: 28px; }
-  .edit-link a { color: var(--muted); font-size: 13px; text-decoration: none; }
-  .edit-link a:hover { color: var(--brand); }
+  .visitor-footer strong {
+    color: var(--brand); font-size: 28px; font-weight: 700; line-height: 1;
+    letter-spacing: .5px;
+  }
+  .visitor-footer .visitor-label { color: var(--text); font-weight: 600; }
   footer {
     text-align: center; color: var(--muted); font-size: 12px;
     margin-top: 24px; border-top: 1px solid var(--line); padding-top: 24px;
@@ -121,16 +121,12 @@
     <div class="links" id="links"></div>
   </section>
 
-  <section>
-    <h2>访问统计</h2>
-    <div class="card visit-card">
-      <p class="visit-counter" id="visit-count">正在统计访问次数……</p>
-    </div>
-  </section>
-
-  <div class="edit-link"><a href="editor.html">✏️ 编辑本页内容（需 GitHub 令牌）</a></div>
-
   <footer id="footer"></footer>
+  <div class="visitor-footer" aria-live="polite">
+    <span class="visitor-label">您是第</span>
+    <strong id="visit-count">—</strong>
+    <span>个访问本站的人</span>
+  </div>
 
 </div>
 
@@ -175,8 +171,8 @@
   window.showVisitCount = function (result) {
     var count = Number(result && result.value);
     document.getElementById('visit-count').textContent = Number.isFinite(count)
-      ? '您是第 ' + count.toLocaleString('zh-CN') + ' 个访问本站的人'
-      : '访问次数暂时无法读取';
+      ? count.toLocaleString('zh-CN')
+      : '—';
   };
 </script>
 <script src="https://abacus.jasoncameron.dev/hit/starryecho-t.github.io/homepage?callback=showVisitCount"></script>
