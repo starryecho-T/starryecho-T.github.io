@@ -77,7 +77,7 @@
   .links a:hover { border-color: var(--brand); color: var(--brand); }
   .visit-card { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .visit-card p { color: var(--muted); font-size: 14px; }
-  .visit-counter { min-width: 132px; min-height: 44px; }
+  .visit-counter { min-width: 132px; min-height: 44px; font-size: 15px; font-weight: 600; color: var(--brand); }
   @media (max-width: 480px) {
     .visit-card { align-items: flex-start; flex-direction: column; }
   }
@@ -124,10 +124,7 @@
   <section>
     <h2>访问统计</h2>
     <div class="card visit-card">
-      <p>感谢你的访问，这是本站累计访问次数。</p>
-      <div class="counterapi visit-counter"
-        ns="starryecho-t.github.io" action="view" key="homepage"
-        label="次访问" noIcon="true" noLink="true"></div>
+      <p class="visit-counter" id="visit-count">正在统计访问次数……</p>
     </div>
   </section>
 
@@ -138,7 +135,6 @@
 </div>
 
 <script src="content.js"></script>
-<script src="https://counterapi.com/c.js" async></script>
 <script>
   function render(content) {
     var esc = function (s) {
@@ -175,6 +171,14 @@
     document.getElementById('footer').innerHTML = esc(content.footer || '');
   }
   render(window.SITE_CONTENT || {});
+
+  window.showVisitCount = function (result) {
+    var count = Number(result && result.value);
+    document.getElementById('visit-count').textContent = Number.isFinite(count)
+      ? '您是第 ' + count.toLocaleString('zh-CN') + ' 个访问本站的人'
+      : '访问次数暂时无法读取';
+  };
 </script>
+<script src="https://counterapi.com/api/starryecho-t.github.io/view/homepage?callback=showVisitCount"></script>
 </body>
 </html>
