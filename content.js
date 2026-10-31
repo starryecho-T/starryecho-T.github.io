@@ -6,8 +6,9 @@ window.SITE_CONTENT = {
   "about": [
     "你好，我是 starryecho。现在是清华的一名电子系大二学生，业余时间写 Android 应用、折腾硬件和网页。",
     "我喜欢跑步和足球！",
-    "目前跑步 1km pb 3:07 最近一次 3:15",
-    "10km pb 45:00"
+    "目前跑步：",
+    "1km pb 3:07 最近一次 3:18",
+    "10km pb 45:00 最近一次在训练中跑了44：16，不过中间断了，希望以后可以在正式的场合里跑出这样的成绩"
   ],
   "projects": [
     {
@@ -22,7 +23,7 @@ window.SITE_CONTENT = {
     },
     {
       "name": "AutoCadence",
-      "description": "AutoCadence 是面向电路题目的桌面设计与仿真应用。普通语言或图片输入 → AI 给出连接和参数建议 → 用户选择是／否 → 核对电路 → Cadence / Spectre 仿真 → 独立曲线与报告。(可以帮助使用virtuoso进行电路仿真",
+      "description": "AutoCadence 是面向电路题目的桌面设计与仿真应用。普通语言或图片输入 → AI 给出连接和参数建议 → 用户选择是／否 → 核对电路 → Cadence / Spectre 仿真 → 独立曲线与报告。(可以帮助使用virtuoso进行电路仿真，目前最大的难题是如何将通用电路的电路图都画成符合人类直观的电路图，而不是像数字电路一样画电路图",
       "tags": [
         "电路"
       ],
@@ -47,5 +48,5 @@ window.SITE_CONTENT = {
       "url": "https://www.yuanshen.com"
     }
   ],
-  "footer": "© 2026 starryecho · 手写 HTML，无框架无构建"
+  "footer": "© 2026 starryecho · 劝君更进一杯酒"
 };
