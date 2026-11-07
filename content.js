@@ -12,6 +12,16 @@ window.SITE_CONTENT = {
   ],
   "projects": [
     {
+      "name": "笔程 · PenDistance",
+      "description": "实验版平板笔尖里程计：在 StarNote 等应用中照常书写，后台累计笔尖接触屏幕的实际距离、接触次数与时长，支持尺寸校准和每日 CSV 导出。面向 OPPO Pad 3；平板重启后需通过 USB 重新启动。数据仅保存在本机，实际距离精度仍待尺子对照验证。",
+      "tags": [
+        "Android",
+        "Java",
+        "学习工具"
+      ],
+      "link": "https://github.com/starryecho-T/PenDistance"
+    },
+    {
       "name": "ThuSchedule · 清华课表",
       "description": "我的个人课表工作站：为清华日常定制的 Android 应用。不提供安装包；适合借用的部分：自绘周视图课表、严格校验的教务导入管线、小组件矩阵、精确闹钟调度。由我的吉大课表项目 ClassSchedule（同为本人开发）演化而来。",
       "tags": [
